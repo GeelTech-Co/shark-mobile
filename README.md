@@ -1,16 +1,21 @@
-# shark_mobile
+# 📱 Shark Mobile
 
-A new Flutter project.
+**Shark Mobile** is a Flutter-based mobile application designed to showcase the company's services, clients, and essential business information.  
+It provides users with an easy way to explore services, learn more about the company, and get in touch quickly.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 🚀 Features
 
-A few resources to get you started if this is your first Flutter project:
+- 🏠 **Home Screen** – Quick access to main sections.
+- 🛠 **Services** – Organized display of the company's offerings.
+- 👥 **Clients** – Showcase of the company's partners and success stories.
+- 📄 **About Us** – Brief company introduction.
+- 📞 **Contact** – Multiple communication channels (phone, email, social media).
+- 🌐 **Multi-language support** (Arabic & English).
+- 📱 Responsive design for all screen sizes.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+---
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 📂 Project Structure
+

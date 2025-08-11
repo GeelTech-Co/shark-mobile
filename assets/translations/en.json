@@ -1,3 +1,7 @@
 {
-   "hello": "Hello" 
+   "hello": "Hello",
+   "all": "All",
+   "home": "Home",
+   "services": "Services",
+   "welcome_message": "Welcome!"
 }

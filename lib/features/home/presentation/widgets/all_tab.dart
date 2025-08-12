@@ -1,7 +1,9 @@
 // 📂 all_tab.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shark_mobile/core/helpers/extensions.dart';
 import 'package:shark_mobile/core/helpers/space_vector.dart';
+import 'package:shark_mobile/core/routing/routes.dart';
 import 'package:shark_mobile/core/widgets/category_header.dart';
 import 'package:shark_mobile/features/home/logic/cubit/home_cubit.dart';
 import 'package:shark_mobile/features/home/presentation/widgets/news_carousel_slider.dart';
@@ -28,27 +30,16 @@ class AllTab extends StatelessWidget {
             verticalSpace(20),
             CategoryHeader(
               onTap: () => tabController.animateTo(2),
-              title: 'Our Services',
+              title: 'our_services',
             ),
             verticalSpace(12),
             OurServicesListView(homeCubit: cubit),
             verticalSpace(12),
             CategoryHeader(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (_) => Scaffold(
-                      appBar: AppBar(title: const Text('Our Clients')),
-                      body: Padding(
-                        padding: const EdgeInsets.all(16),
-                        child: OurClientsListView(homeCubit: cubit),
-                      ),
-                    ),
-                  ),
-                );
+                context.pushNamed(Routes.ourClientsView);
               },
-              title: 'Our Clients',
+              title: 'our_clients',
             ),
             verticalSpace(12),
             OurClientsListView(homeCubit: cubit),

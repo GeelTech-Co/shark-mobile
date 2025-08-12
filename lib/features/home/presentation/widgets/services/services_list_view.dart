@@ -4,7 +4,7 @@ import 'package:shark_mobile/core/helpers/space_vector.dart';
 import 'package:shark_mobile/core/themes/styles.dart';
 import 'package:shark_mobile/features/home/data/model/service_model.dart';
 import 'package:shark_mobile/features/home/presentation/views/service_details_view.dart';
-import 'package:shark_mobile/features/home/presentation/widgets/service_card.dart';
+import 'package:shark_mobile/features/home/presentation/widgets/services/service_card.dart';
 
 class ServicesListView extends StatelessWidget {
   const ServicesListView({

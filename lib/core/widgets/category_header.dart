@@ -3,6 +3,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shark_mobile/core/helpers/space_vector.dart';
+import 'package:shark_mobile/core/themes/colors.dart';
 import 'package:shark_mobile/core/themes/styles.dart';
 
 class CategoryHeader extends StatelessWidget {
@@ -21,7 +22,12 @@ class CategoryHeader extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(title.tr(), style: TextStyles.font18DarkBlueBold),
+            Text(
+              title.tr(),
+              style: TextStyles.font24BlueBold.copyWith(
+                color: ColorsManager.primary,
+              ),
+            ),
             horizontalSpace(5),
             Icon(Icons.arrow_forward_ios),
           ],

@@ -13,11 +13,11 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
   final ValueChanged<String> onLanguageChanged;
 
   const HomeAppBar({
-    Key? key,
+    super.key,
     required this.tabController,
     required this.selectedLanguage,
     required this.onLanguageChanged,
-  }) : super(key: key);
+  });
 
   @override
   Size get preferredSize => Size.fromHeight(110.h);
@@ -28,20 +28,21 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       shadowColor: Colors.transparent,
       surfaceTintColor: Colors.transparent,
-      backgroundColor: ColorsManager.wight,
+      backgroundColor: ColorsManager.white,
       elevation: 0,
       bottom: PreferredSize(
         preferredSize: Size.fromHeight(48.h),
         child: Container(
           height: 48.h,
           decoration: BoxDecoration(
-            color: ColorsManager.wight, // Moved color to BoxDecoration
+            color: ColorsManager.white, // Moved color to BoxDecoration
             border: Border.all(
               width: 0,
               color: Colors.transparent,
             ), // No border
           ),
           child: TabBar(
+            isScrollable: true,
             controller: tabController,
             indicator: RoundedUnderlineIndicator(
               borderSide: BorderSide(color: ColorsManager.primary, width: 4.h),

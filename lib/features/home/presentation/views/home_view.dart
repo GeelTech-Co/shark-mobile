@@ -1,18 +1,14 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:shark_mobile/core/themes/colors.dart';
-import 'package:shark_mobile/core/themes/styles.dart';
-import 'package:shark_mobile/features/home/data/model/service_model.dart';
 import 'package:shark_mobile/features/home/logic/cubit/home_cubit.dart';
 import 'package:shark_mobile/features/home/logic/cubit/home_state.dart';
 import 'package:shark_mobile/features/home/presentation/widgets/all_tab.dart';
+import 'package:shark_mobile/features/home/presentation/widgets/careers_tab.dart';
+import 'package:shark_mobile/features/home/presentation/widgets/gallery_tab.dart';
 import 'package:shark_mobile/features/home/presentation/widgets/home_app_bar.dart';
 import 'package:shark_mobile/features/home/presentation/widgets/home_tab.dart';
-import 'package:shark_mobile/features/home/presentation/widgets/service_card.dart';
-import 'package:shark_mobile/features/home/presentation/widgets/services_list_view.dart';
+import 'package:shark_mobile/features/home/presentation/widgets/services/services_list_view.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -21,7 +17,8 @@ class HomeView extends StatefulWidget {
   State<HomeView> createState() => _HomeViewState();
 }
 
-class _HomeViewState extends State<HomeView> with SingleTickerProviderStateMixin {
+class _HomeViewState extends State<HomeView>
+    with SingleTickerProviderStateMixin {
   final List<String> languages = ['English', 'العربيه'];
   String selectedLanguage = 'English';
   late TabController _tabController;
@@ -29,7 +26,7 @@ class _HomeViewState extends State<HomeView> with SingleTickerProviderStateMixin
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 3, vsync: this);
+    _tabController = TabController(length: 5, vsync: this);
     _tabController.addListener(() {
       if (!_tabController.indexIsChanging) {
         context.read<HomeCubit>().changeSelectedIndex(_tabController.index);
@@ -68,11 +65,14 @@ class _HomeViewState extends State<HomeView> with SingleTickerProviderStateMixin
             physics: const BouncingScrollPhysics(),
             children: [
               AllTab(tabController: _tabController),
+
               HomeTab(controller: _tabController),
               ServicesListView(
                 services: cubit.dummyServices,
                 title: 'security_services'.tr(),
               ),
+              CareersTab(),
+              GalleryTab(),
             ],
           ),
         );

@@ -5,4 +5,6 @@ class Routes {
   static const registerScreen = '/registerScreen';
   static const serviceDetailsView = '/serviceDetailsView';
   static const ourClientsView = '/ourClientsViewView';
+  static const newsDetailsView = '/newsDetailsView';
+    static const contactUsView = '/contactUsView';
 }

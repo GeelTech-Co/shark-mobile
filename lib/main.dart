@@ -7,7 +7,7 @@ import 'package:shark_mobile/shark_app.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
-  setupGetit();
+  await setupGetit();
 
   runApp(
     EasyLocalization(

@@ -15,7 +15,8 @@ class RegisterCubit extends Cubit<RegisterState> {
   final phoneController = TextEditingController();
   final passwordController = TextEditingController();
   final confirmPasswordController = TextEditingController();
-
+  bool isPasswordHidden = true;
+  bool isConfirmPasswordHidden = true;
   void register(context) async {
     emit(RegisterState.registerLoading());
 
@@ -37,5 +38,15 @@ class RegisterCubit extends Cubit<RegisterState> {
         emit(RegisterState.registerError(apiErrorModel));
       },
     );
+  }
+
+  void togglePasswordVisibility() {
+    isPasswordHidden = !isPasswordHidden;
+    emit(RegisterState.passwordVisibilityChanged(isPasswordHidden));
+  }
+
+  void toggleconfirmPasswordVisibility() {
+    isConfirmPasswordHidden = !isConfirmPasswordHidden;
+    emit(RegisterState.passwordVisibilityChanged(isConfirmPasswordHidden));
   }
 }

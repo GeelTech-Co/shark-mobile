@@ -19,7 +19,7 @@ class SharkApp extends StatelessWidget {
         localizationsDelegates: context.localizationDelegates,
         supportedLocales: context.supportedLocales,
         locale: context.locale,
-        initialRoute: Routes.loginScreen,
+        initialRoute: Routes.registerScreen,
         onGenerateRoute: appRouter.generateRoutes,
         theme: ThemeData(
           scaffoldBackgroundColor: Colors.white,

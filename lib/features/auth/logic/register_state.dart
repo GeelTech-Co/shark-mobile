@@ -11,4 +11,7 @@ class RegisterState<T> with _$RegisterState<T> {
   const factory RegisterState.registerSuccess(T data) = RegisterSuccess<T>;
   const factory RegisterState.registerError(ApiErrorModel apiErrorModel) =
       RegisterError;
+
+  const factory RegisterState.passwordVisibilityChanged(bool isHidden) =
+      PasswordVisibilityChanged;
 }

@@ -14,7 +14,7 @@ class CustomTextFormField extends StatelessWidget {
     this.height,
 
     // Text
-    required this.labelText,
+    this.labelText,
     this.labelStyle,
     this.hintText,
     this.hintTextStyle,
@@ -59,7 +59,7 @@ class CustomTextFormField extends StatelessWidget {
   final double? height;
 
   // Text
-  final String labelText;
+  final String? labelText;
   final TextStyle? labelStyle;
   final String? hintText;
   final TextStyle? hintTextStyle;
@@ -115,35 +115,37 @@ class CustomTextFormField extends StatelessWidget {
         style: TextStyles.font13DarkBlueRegular,
 
         decoration: InputDecoration(
-        
           labelText: labelText,
-          labelStyle: labelStyle ?? TextStyles.font14DarkBlueBold.copyWith(
-            color: ColorsManager.primary
-          ),
+          labelStyle:
+              labelStyle ??
+              TextStyles.font14DarkBlueBold.copyWith(
+                color: ColorsManager.primary,
+              ),
           hintText: hintText,
-          hintStyle:
-              hintTextStyle ??
-              TextStyles.font12GrayMedium,
+          hintStyle: hintTextStyle ?? TextStyles.font14GrayMedium,
           filled: filled,
           fillColor: filledColor,
-          prefixIcon:
-              prefixIcon ??
-              (prefixImagePath != null
-                  ? Padding(
-                      padding: context.isArabic
-                          ? EdgeInsets.only(right: 12.w)
-                          : EdgeInsets.only(left: 12.w),
-                      child: SizedBox(
-                        height: 24.h,
-                        width: 24.w,
-                        child: Image.asset(
-                          prefixImagePath!,
-                          color: prefixForGroundColor,
-                          fit: BoxFit.contain,
+          prefixIcon: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.w),
+            child:
+                prefixIcon ??
+                (prefixImagePath != null
+                    ? Padding(
+                        padding: context.isArabic
+                            ? EdgeInsets.only(right: 12.w)
+                            : EdgeInsets.only(left: 12.w),
+                        child: SizedBox(
+                          height: 24.h,
+                          width: 24.w,
+                          child: Image.asset(
+                            prefixImagePath!,
+                            color: prefixForGroundColor,
+                            fit: BoxFit.contain,
+                          ),
                         ),
-                      ),
-                    )
-                  : null),
+                      )
+                    : null),
+          ),
 
           suffixIcon:
               suffixIcon ??

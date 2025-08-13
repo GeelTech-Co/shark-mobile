@@ -74,6 +74,13 @@ class TextStyles {
     color: ColorsManager.gray,
   );
 
+    static TextStyle font14GrayMedium = TextStyle(
+    fontFamily: 'Tajawal',
+    fontSize: 14.sp,
+    fontWeight: FontWeightHelper.medium,
+    color: ColorsManager.gray,
+  );
+
   static TextStyle font12DarkBlueRegular = TextStyle(
     fontFamily: 'Tajawal',
     fontSize: 12.sp,

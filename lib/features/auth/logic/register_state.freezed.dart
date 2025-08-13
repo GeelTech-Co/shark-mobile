@@ -55,14 +55,15 @@ extension RegisterStatePatterns<T> on RegisterState<T> {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( _Initial<T> value)?  initial,TResult Function( RegisterLoading<T> value)?  registerLoading,TResult Function( RegisterSuccess<T> value)?  registerSuccess,TResult Function( RegisterError<T> value)?  registerError,required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( _Initial<T> value)?  initial,TResult Function( RegisterLoading<T> value)?  registerLoading,TResult Function( RegisterSuccess<T> value)?  registerSuccess,TResult Function( RegisterError<T> value)?  registerError,TResult Function( PasswordVisibilityChanged<T> value)?  passwordVisibilityChanged,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
 return initial(_that);case RegisterLoading() when registerLoading != null:
 return registerLoading(_that);case RegisterSuccess() when registerSuccess != null:
 return registerSuccess(_that);case RegisterError() when registerError != null:
-return registerError(_that);case _:
+return registerError(_that);case PasswordVisibilityChanged() when passwordVisibilityChanged != null:
+return passwordVisibilityChanged(_that);case _:
   return orElse();
 
 }
@@ -80,14 +81,15 @@ return registerError(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( _Initial<T> value)  initial,required TResult Function( RegisterLoading<T> value)  registerLoading,required TResult Function( RegisterSuccess<T> value)  registerSuccess,required TResult Function( RegisterError<T> value)  registerError,}){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( _Initial<T> value)  initial,required TResult Function( RegisterLoading<T> value)  registerLoading,required TResult Function( RegisterSuccess<T> value)  registerSuccess,required TResult Function( RegisterError<T> value)  registerError,required TResult Function( PasswordVisibilityChanged<T> value)  passwordVisibilityChanged,}){
 final _that = this;
 switch (_that) {
 case _Initial():
 return initial(_that);case RegisterLoading():
 return registerLoading(_that);case RegisterSuccess():
 return registerSuccess(_that);case RegisterError():
-return registerError(_that);case _:
+return registerError(_that);case PasswordVisibilityChanged():
+return passwordVisibilityChanged(_that);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -104,14 +106,15 @@ return registerError(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( _Initial<T> value)?  initial,TResult? Function( RegisterLoading<T> value)?  registerLoading,TResult? Function( RegisterSuccess<T> value)?  registerSuccess,TResult? Function( RegisterError<T> value)?  registerError,}){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( _Initial<T> value)?  initial,TResult? Function( RegisterLoading<T> value)?  registerLoading,TResult? Function( RegisterSuccess<T> value)?  registerSuccess,TResult? Function( RegisterError<T> value)?  registerError,TResult? Function( PasswordVisibilityChanged<T> value)?  passwordVisibilityChanged,}){
 final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
 return initial(_that);case RegisterLoading() when registerLoading != null:
 return registerLoading(_that);case RegisterSuccess() when registerSuccess != null:
 return registerSuccess(_that);case RegisterError() when registerError != null:
-return registerError(_that);case _:
+return registerError(_that);case PasswordVisibilityChanged() when passwordVisibilityChanged != null:
+return passwordVisibilityChanged(_that);case _:
   return null;
 
 }
@@ -128,13 +131,14 @@ return registerError(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  initial,TResult Function()?  registerLoading,TResult Function( T data)?  registerSuccess,TResult Function( ApiErrorModel apiErrorModel)?  registerError,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  initial,TResult Function()?  registerLoading,TResult Function( T data)?  registerSuccess,TResult Function( ApiErrorModel apiErrorModel)?  registerError,TResult Function( bool isHidden)?  passwordVisibilityChanged,required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
 return initial();case RegisterLoading() when registerLoading != null:
 return registerLoading();case RegisterSuccess() when registerSuccess != null:
 return registerSuccess(_that.data);case RegisterError() when registerError != null:
-return registerError(_that.apiErrorModel);case _:
+return registerError(_that.apiErrorModel);case PasswordVisibilityChanged() when passwordVisibilityChanged != null:
+return passwordVisibilityChanged(_that.isHidden);case _:
   return orElse();
 
 }
@@ -152,13 +156,14 @@ return registerError(_that.apiErrorModel);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  initial,required TResult Function()  registerLoading,required TResult Function( T data)  registerSuccess,required TResult Function( ApiErrorModel apiErrorModel)  registerError,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  initial,required TResult Function()  registerLoading,required TResult Function( T data)  registerSuccess,required TResult Function( ApiErrorModel apiErrorModel)  registerError,required TResult Function( bool isHidden)  passwordVisibilityChanged,}) {final _that = this;
 switch (_that) {
 case _Initial():
 return initial();case RegisterLoading():
 return registerLoading();case RegisterSuccess():
 return registerSuccess(_that.data);case RegisterError():
-return registerError(_that.apiErrorModel);case _:
+return registerError(_that.apiErrorModel);case PasswordVisibilityChanged():
+return passwordVisibilityChanged(_that.isHidden);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -175,13 +180,14 @@ return registerError(_that.apiErrorModel);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  initial,TResult? Function()?  registerLoading,TResult? Function( T data)?  registerSuccess,TResult? Function( ApiErrorModel apiErrorModel)?  registerError,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  initial,TResult? Function()?  registerLoading,TResult? Function( T data)?  registerSuccess,TResult? Function( ApiErrorModel apiErrorModel)?  registerError,TResult? Function( bool isHidden)?  passwordVisibilityChanged,}) {final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
 return initial();case RegisterLoading() when registerLoading != null:
 return registerLoading();case RegisterSuccess() when registerSuccess != null:
 return registerSuccess(_that.data);case RegisterError() when registerError != null:
-return registerError(_that.apiErrorModel);case _:
+return registerError(_that.apiErrorModel);case PasswordVisibilityChanged() when passwordVisibilityChanged != null:
+return passwordVisibilityChanged(_that.isHidden);case _:
   return null;
 
 }
@@ -379,6 +385,72 @@ class _$RegisterErrorCopyWithImpl<T,$Res>
   return _then(RegisterError<T>(
 null == apiErrorModel ? _self.apiErrorModel : apiErrorModel // ignore: cast_nullable_to_non_nullable
 as ApiErrorModel,
+  ));
+}
+
+
+}
+
+/// @nodoc
+
+
+class PasswordVisibilityChanged<T> implements RegisterState<T> {
+  const PasswordVisibilityChanged(this.isHidden);
+  
+
+ final  bool isHidden;
+
+/// Create a copy of RegisterState
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$PasswordVisibilityChangedCopyWith<T, PasswordVisibilityChanged<T>> get copyWith => _$PasswordVisibilityChangedCopyWithImpl<T, PasswordVisibilityChanged<T>>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is PasswordVisibilityChanged<T>&&(identical(other.isHidden, isHidden) || other.isHidden == isHidden));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,isHidden);
+
+@override
+String toString() {
+  return 'RegisterState<$T>.passwordVisibilityChanged(isHidden: $isHidden)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $PasswordVisibilityChangedCopyWith<T,$Res> implements $RegisterStateCopyWith<T, $Res> {
+  factory $PasswordVisibilityChangedCopyWith(PasswordVisibilityChanged<T> value, $Res Function(PasswordVisibilityChanged<T>) _then) = _$PasswordVisibilityChangedCopyWithImpl;
+@useResult
+$Res call({
+ bool isHidden
+});
+
+
+
+
+}
+/// @nodoc
+class _$PasswordVisibilityChangedCopyWithImpl<T,$Res>
+    implements $PasswordVisibilityChangedCopyWith<T, $Res> {
+  _$PasswordVisibilityChangedCopyWithImpl(this._self, this._then);
+
+  final PasswordVisibilityChanged<T> _self;
+  final $Res Function(PasswordVisibilityChanged<T>) _then;
+
+/// Create a copy of RegisterState
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? isHidden = null,}) {
+  return _then(PasswordVisibilityChanged<T>(
+null == isHidden ? _self.isHidden : isHidden // ignore: cast_nullable_to_non_nullable
+as bool,
   ));
 }
 
